@@ -6,33 +6,38 @@ A simple tool to simulate stock market returns using S&P 500 data from January 1
 
 1. Load libraries:
 
-
-    $LOAD_PATH << File.join(File.dirname(__FILE__), "..", "lib")
-    $LOAD_PATH << File.join(File.dirname(__FILE__), "..", "data")
-    require 'investsim'
+```ruby
+$LOAD_PATH << File.join(File.dirname(__FILE__), "..", "lib")
+$LOAD_PATH << File.join(File.dirname(__FILE__), "..", "data")
+require 'investsim'
+```
 
 2. Parse data from Robert Shiller's S&P 500 spreadsheet:
 
-
-    data_table = ShillerParser.new.data_table
+```ruby
+data_table = ShillerParser.new.data_table
+```
 
 3. Create an investment account; optionally load with an initial investment:
 
-
-    account = InvestmentAccount.new(data_table, {amount: 100})
+```ruby
+account = InvestmentAccount.new(data_table, {amount: 100})
+```
 
 4. Manipulate the account through investment, withdrawal, or no action through each month
 
-
-    account.invest_and_advance 10
-    account.withdraw_and_advance 10
-    account.advance
-    account.advance_to account.last_date
+```ruby
+account.invest_and_advance 10
+account.withdraw_and_advance 10
+account.advance
+account.advance_to account.last_date
+```
 
 5. Check account balance at any point
 
-
-    puts account.balance
+```ruby
+puts account.balance
+```
 
 # Current Scripts
 
